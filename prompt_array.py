@@ -14,6 +14,8 @@ def get_similaritymatrix(group1, group2):
     group1_tokenized = [clip.tokenize(el).to(device) for el in group1]
     group2_tokenized = [clip.tokenize(el).to(device) for el in group2]
 
+    print(len(group1_tokenized), len(group2_tokenized))
+
     #Loading Models
     clip_model, preprocess = clip.load("ViT-B/16", device=device)
     deb_clip_model, preprocess = debias_clip.load("ViT-B/16-gender", device=device)
