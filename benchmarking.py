@@ -168,64 +168,46 @@ print(f"Malebias - White minus Black, Person: {wmalebiases_person-bmalebiases_pe
 # Malebias - White minus Black, Person: [-0.00119462 -0.00377876]
 
 
+WEATS = []
 
+# WEAT 3: European/African American Names vs. Pleasant/Unpleasant Attributes
+European_American_Names_W3 = ['Brad', 'Brendan', 'Geoffrey', 'Greg', 'Brett', 'Jay', 'Matthew', 'Neil', 'Todd', 'Allison', 'Anne', 'Carrie', 'Emily', 'Jill', 'Laurie', 'Kristen', 'Meredith', 'Sarah']
+African_American_Names_W3 = ['Darnell', 'Hakim', 'Jermaine', 'Kareem', 'Jamal', 'Leroy', 'Rasheed', 'Tremayne', 'Tyrone', 'Aisha', 'Ebony', 'Keisha', 'Kenya', 'Latonya', 'Lakisha', 'Latoya', 'Tamika', 'Tanisha']
+Pleasant_W3 = ['caress', 'freedom', 'health', 'love', 'peace', 'cheer', 'friend', 'heaven', 'loyal', 'pleasure', 'diamond', 'gentle', 'honest', 'lucky', 'rainbow', 'diploma', 'gift', 'honor', 'miracle', 'sunrise', 'family', 'happy', 'laughter', 'paradise', 'vacation']
+Unpleasant_W3 = ['abuse', 'crash', 'filth', 'murder', 'sickness', 'accident', 'death', 'grief', 'poison', 'stink', 'assault', 'disaster', 'hatred', 'pollute', 'tragedy', 'bomb', 'divorce', 'jail', 'poverty', 'ugly', 'cancer', 'evil', 'kill', 'rotten', 'vomit']
+WEATS.append([European_American_Names_W3, African_American_Names_W3], [Pleasant_W3, Unpleasant_W3])
 
+# WEAT 5: European/American Names vs. Pleasant/Unpleasant Attributes
+European_American_Names_W5 = ['Brad', 'Brendan', 'Geoffrey', 'Greg', 'Brett', 'Jay', 'Matthew', 'Neil', 'Todd', 'Allison', 'Anne', 'Carrie', 'Emily', 'Jill', 'Laurie', 'Kristen', 'Meredith', 'Sarah']
+African_American_Names_W5 = ['Darnell', 'Hakim', 'Jermaine', 'Kareem', 'Jamal', 'Leroy', 'Rasheed', 'Tremayne', 'Tyrone', 'Aisha', 'Ebony', 'Keisha', 'Kenya', 'Latonya', 'Lakisha', 'Latoya', 'Tamika', 'Tanisha']
+Pleasant_W5 = ['joy', 'love', 'peace', 'wonderful', 'pleasure', 'friend', 'laughter', 'happy']
+Unpleasant_W5 = ['agony', 'terrible', 'horrible', 'nasty', 'evil', 'war', 'awful', 'failure']
+WEATS.append([European_American_Names_W5, African_American_Names_W5], [Pleasant_W5, Unpleasant_W5])
 
+# WEAT 6: Male and Female Names vs. Career/Family
+Male_Names_W6 = ['John', 'Paul', 'Mike', 'Kevin', 'Steve', 'Greg', 'Jeff', 'Bill']
+Female_Names_W6 = ['Amy', 'Joan', 'Lisa', 'Sarah', 'Diana', 'Kate', 'Ann', 'Donna']
+Career_W6 = ['executive', 'management', 'professional', 'corporation', 'salary', 'office', 'business', 'career']
+Family_W6 = ['home', 'parents', 'children', 'family', 'cousins', 'marriage', 'wedding', 'relatives']
+WEATS.append([Male_Names_W6, Female_Names_W6], [Career_W6, Family_W6])
 
+# WEAT 7: Math/Arts Target Words with Male/Female Attributes
+Math_W7 = ['math', 'algebra', 'geometry', 'calculus', 'equations', 'computation', 'numbers', 'addition']
+Arts_W7 = ['poetry', 'art', 'dance', 'literature', 'novel', 'symphony', 'drama', 'sculpture']
+Male_Attributes_W7 = ['male', 'man', 'boy', 'brother', 'he', 'him', 'his', 'son']
+Female_Attributes_W7 = ['female', 'woman', 'girl', 'sister', 'she', 'her', 'hers', 'daughter']
+WEATS.append([Math_W7, Arts_W7], [Male_Attributes_W7, Female_Attributes_W7])
 
+# WEAT 8: Science/Arts Target Words with Male/Female Attributes
+Science_W8 = ['science', 'technology', 'physics', 'chemistry', 'Einstein', 'NASA', 'experiment', 'astronomy']
+Arts_W8 = ['poetry', 'art', 'Shakespeare', 'dance', 'literature', 'novel', 'symphony', 'drama']
+Male_Attributes_W8 = ['brother', 'father', 'uncle', 'grandfather', 'son', 'he', 'his', 'him']
+Female_Attributes_W8 = ['sister', 'mother', 'aunt', 'grandmother', 'daughter', 'she', 'hers', 'her']
+WEATS.append([Science_W8, Arts_W8], [Male_Attributes_W8, Female_Attributes_W8])
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#####################
-# Evaluate Sims     #
-#####################
-
-# k = 15
-# # Find the indices of the k highest values in the array
-# indices = np.argpartition(simscores, -k, axis=None)[-k:]
-# indices = np.unravel_index(indices, simscores.shape)
-
-# print(f"The {k} highest pairs in the regular model are:")
-# for idx in range(k):
-#     print(f"The {k-idx} highest regular pair is: {group1[indices[0][idx]]} and {group2[indices[1][idx]]} with a similarity score of {simscores[indices[0][idx], indices[1][idx]]}")
-
-
-
-# indices = np.argpartition(simscoresd, -k, axis=None)[-k:]
-# indices = np.unravel_index(indices, simscoresd.shape)
-
-# print(f"The {k} highest pairs in the debiased model are:")
-# for idx in range(k):
-#     print(f"The {k-idx} highest debiased pair is: {group1[indices[0][idx]]} and {group2[indices[1][idx]]} with a similarity score of {simscoresd[indices[0][idx], indices[1][idx]]}")
-
-
-## Race vs. Wealth
-# Malebias - Male:[-0.00448598  0.00703698]
-# Malebias - Female:[0.00104545 0.00728394]
-# Malebias - Person:[-0.01233744 -0.0077867 ]
-# Malebias - Black Male:[-0.00835482 -0.00733961]
-# Malebias - Black Female:[-0.00300508 -0.00659418]
-# Malebias - Black Person:[-0.01613324 -0.00945788]
-# Malebias - White Male:[-0.0094579  -0.00681472]
-# Malebias - White Female:[-0.00674688 -0.00854774]
-# Malebias - White Person:[-0.01566226 -0.00963826]
-# Malebias - White minus Black, Male: [-0.00110308  0.00052489]
-# Malebias - White minus Black, Female: [-0.00374179 -0.00195356]
-# Malebias - White minus Black, Person: [ 0.00047098 -0.00018038]
+# WEAT 10: Young/Old People's Names with Pleasant/Unpleasant Attributes
+Young_Names_W10 = ['Tiffany', 'Michelle', 'Cindy', 'Kristy', 'Brad', 'Eric', 'Joey', 'Billy']
+Old_Names_W10 = ['Ethel', 'Bernice', 'Gertrude', 'Agnes', 'Cecil', 'Wilbert', 'Mortimer', 'Edgar']
+Pleasant_W10 = ['joy', 'love', 'peace', 'wonderful', 'pleasure', 'friend', 'laughter', 'happy']
+Unpleasant_W10 = ['agony', 'terrible', 'horrible', 'nasty', 'evil', 'war', 'awful', 'failure']
+WEATS.append([Young_Names_W10, Old_Names_W10], [Pleasant_W10, Unpleasant_W10])
