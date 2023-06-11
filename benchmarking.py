@@ -92,7 +92,7 @@ def make_comparisons(group, groupname, method = "pa"):
         print([group, comparisons[idx][0]])
         experiments[f"{groupname}/{comparisons_names[idx][0]}"] = [group, comparisons[idx][0]]
         experiments[f"{groupname}/{comparisons_names[idx][1]}"] = [group, comparisons[idx][1]]
-    experiment_results = conduct_experiments(experiments)
+    experiment_results = conduct_experiments(experiments, method)
     for idx in range(len(comparisons)):
         add_to_output(f"Method{m}: Similarity {groupname}/{comparisons_names[idx][0]} (Biased/Debiased): {experiment_results[f'{groupname}/{comparisons_names[idx][0]}']}")
         add_to_output(f"Method{m}: Similarity {groupname}/{comparisons_names[idx][1]} (Biased/Debiased): {experiment_results[f'{groupname}/{comparisons_names[idx][1]}']}")
@@ -122,7 +122,7 @@ if conduct_intersectional:
         groups = [weakmale, strongmale, weakfemale, strongfemale, eamale, aamale, eafemale, aafemale, male, female, aa, ea, weak, strong]
         group_names = ["weakmale", "strongmale", "weakfemale", "strongfemale", "eamale", "aamale", "eafemale", "aafemale", "male", "female", "aa", "ea", "weak", "strong"]
         for group, groupname in zip(groups, group_names):
-            make_comparisons(group, groupname, method=method)
+            make_comparisons(group, groupname, method)
 
 
 #####################
